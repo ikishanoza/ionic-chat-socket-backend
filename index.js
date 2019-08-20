@@ -1,6 +1,10 @@
 let app = require('express')();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
  
 io.on('connection', (socket) => {
   
